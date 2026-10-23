@@ -1,4 +1,5 @@
 ﻿using ConsoleApp3.Acceso;
+using ConsoleApp3.Menus;
 using ConsoleApp3.StConeection;
 
 namespace ConsoleApp3
@@ -8,10 +9,8 @@ namespace ConsoleApp3
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0090:Usar \"new(...)\"", Justification = "<pendiente>")]
         static void Main(string[] args)
         {
-            ClassAcceso ca = new ClassAcceso();
-            dbConnection dbc = new dbConnection();
-            dbc.SetSqlServerConnection();
-            ca.Loggin();
+            ClassMenu menu = new ClassMenu();
+            menu.Loggin();
         }
     }
 }
