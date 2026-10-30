@@ -35,7 +35,7 @@ namespace ConsoleApp3.Data.Store
                                 {
                                     int id_brand = reader.GetInt32("id_brand");
                                     string brand_name = reader.GetString("brand_name");
-                                    Console.WriteLine($"{id_brand} ||  {brand_name}");
+                                    Console.WriteLine($"{id_brand}   ||  {brand_name}");
                                 }
                             }
                         }

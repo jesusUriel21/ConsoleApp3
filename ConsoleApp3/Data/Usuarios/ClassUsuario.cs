@@ -14,10 +14,13 @@ namespace ConsoleApp3.Data.Usuarios
         //Se llama e instancia la clase conexion para acceder a la base de datos MySQL
         Connection db = new Connection();
         //Consulta a la tabla usuario para validar la existencia.
-        private string consulta1 = "select id_usuario, nombre, apellido_paterno, apellido_materno from usuario";
+        private string consulta1 = "select nombre from usuario";
         //Funcion o metodo para obtener los usuarios
-        public void GetAllUsers()
+        public string GetUser()
         {
+
+            string nombre_usuario = "";
+
             try
             {
                 using (MySqlConnection cn  = new MySqlConnection(db.MySqlConnectionString))
@@ -31,11 +34,11 @@ namespace ConsoleApp3.Data.Usuarios
                             {
                                 while (dr.Read())
                                 {
-                                    int id_usuario = dr.GetInt32("id_usuario");
+                                    //int id_usuario = dr.GetInt32("id_usuario");
                                     string nombre = dr.GetString("nombre");
-                                    string apellido_paterno = dr.GetString("apellido_paterno");
-                                    string apellido_materno = dr.GetString("apellido_materno");
-                                    Console.WriteLine($"{id_usuario} |   {nombre}  |   {apellido_paterno}  |  {apellido_materno}");
+                                    //string apellido_paterno = dr.GetString("apellido_paterno");
+                                    //string apellido_materno = dr.GetString("apellido_materno");
+                                     nombre_usuario= $"{nombre}";   
                                 }
                             }
                         }
@@ -51,6 +54,8 @@ namespace ConsoleApp3.Data.Usuarios
             {
                 Console.WriteLine("Error al conectar con la base de datos: error "+ex);
             }
+
+            return nombre_usuario;
         }
     }
 }

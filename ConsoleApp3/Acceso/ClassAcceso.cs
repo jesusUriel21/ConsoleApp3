@@ -1,4 +1,6 @@
 ﻿using ConsoleApp3.Data;
+using ConsoleApp3.Data.Store;
+using ConsoleApp3.Data.Usuarios;
 using ConsoleApp3.Menus;
 using ConsoleApp3.Seguridad;
 using ConsoleApp3.StConeection;
@@ -39,9 +41,11 @@ namespace ConsoleApp3.Acceso
                                     Console.WriteLine("Usuario y contraseña correctos \niniciando sesión....");
                                     Task.Delay(5000).Wait();
                                     Console.Clear();
-                                    ClassUsuario usuario = new ClassUsuario();
-                                    Console.WriteLine("Lista de usuarios");
-                                    usuario.GetAllUsers();
+                                    ClassMenu menu = new ClassMenu();
+                                    menu.ShowMenu();
+                                    ClassStore store = new ClassStore();
+                                    Console.WriteLine("id  ||  Marca ");
+                                    store.GetBrands();
                                     Console.ReadKey();
                                 }
                                 else

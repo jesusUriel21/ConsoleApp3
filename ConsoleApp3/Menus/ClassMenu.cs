@@ -1,6 +1,8 @@
 ﻿using ConsoleApp3.Acceso;
 using ConsoleApp3.Data;
+using ConsoleApp3.Data.Usuarios;
 using ConsoleApp3.Seguridad;
+using Google.Protobuf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,8 @@ namespace ConsoleApp3.Menus
 {
     public class ClassMenu
     {
+
+
         public void Loggin()
         {
             ClassAcceso us = new ClassAcceso();
@@ -21,5 +25,19 @@ namespace ConsoleApp3.Menus
             string contrasena = Console.ReadLine();
             us.findUser(correo, contrasena);
         }
+
+
+
+
+
+        public void ShowMenu()
+        {
+            ClassUsuario usuario = new ClassUsuario();
+            Console.WriteLine($"Bienvenido {usuario.GetUser()}");
+            Console.WriteLine();
+        }
+
+
+
     }
 }
